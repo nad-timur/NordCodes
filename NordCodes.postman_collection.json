@@ -1,0 +1,1167 @@
+{
+	"info": {
+		"_postman_id": "09f3166b-32b4-4668-b86b-d8833761a329",
+		"name": "NordCodes Test Collection",
+		"description": "Test assignment for QA Engineer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18643989"
+	},
+	"item": [
+		{
+			"name": "Invalid Authorization - Wrong Username",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.test(\"Result is ERROR\", function () {",
+							"    pm.expect(jsonData.result).to.eql(\"ERROR\");",
+							"});",
+							"pm.test(\"Error message is present\", function () {",
+							"    pm.expect(jsonData.message).to.be.a(\"string\").and.not.empty;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "wronguser",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "qazWSXedc",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://apitests.nyc.wf/authorization",
+					"protocol": "https",
+					"host": [
+						"apitests",
+						"nyc",
+						"wf"
+					],
+					"path": [
+						"authorization"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid Authorization - Wrong Password",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.test(\"Result is ERROR\", function () {",
+							"    pm.expect(jsonData.result).to.eql(\"ERROR\");",
+							"});",
+							"pm.test(\"Error message is present\", function () {",
+							"    pm.expect(jsonData.message).to.be.a(\"string\").and.not.empty;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "wrongpass",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://apitests.nyc.wf/authorization",
+					"protocol": "https",
+					"host": [
+						"apitests",
+						"nyc",
+						"wf"
+					],
+					"path": [
+						"authorization"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid Authorization - Empty Username",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.test(\"Result is ERROR\", function () {",
+							"    pm.expect(jsonData.result).to.eql(\"ERROR\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "qazWSXedc",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://apitests.nyc.wf/authorization",
+					"protocol": "https",
+					"host": [
+						"apitests",
+						"nyc",
+						"wf"
+					],
+					"path": [
+						"authorization"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid Authorization - Empty Password",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.test(\"Result is ERROR\", function () {",
+							"    pm.expect(jsonData.result).to.eql(\"ERROR\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://apitests.nyc.wf/authorization",
+					"protocol": "https",
+					"host": [
+						"apitests",
+						"nyc",
+						"wf"
+					],
+					"path": [
+						"authorization"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid Authorization - Empty Username and Password",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.test(\"Result is ERROR\", function () {",
+							"    pm.expect(jsonData.result).to.eql(\"ERROR\");",
+							"});",
+							"pm.test(\"Error message is present\", function () {",
+							"    pm.expect(jsonData.message).to.be.a(\"string\").and.not.empty;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://apitests.nyc.wf/authorization",
+					"protocol": "https",
+					"host": [
+						"apitests",
+						"nyc",
+						"wf"
+					],
+					"path": [
+						"authorization"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid Authorization - Wrong Username and Password",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.test(\"Result is ERROR\", function () {",
+							"    pm.expect(jsonData.result).to.eql(\"ERROR\");",
+							"});",
+							"pm.test(\"Error message is present\", function () {",
+							"    pm.expect(jsonData.message).to.be.a(\"string\").and.not.empty;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "wronguser",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "wrongpass",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://apitests.nyc.wf/authorization",
+					"protocol": "https",
+					"host": [
+						"apitests",
+						"nyc",
+						"wf"
+					],
+					"path": [
+						"authorization"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Successful Authorization",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.test(\"Result is OK\", function () {",
+							"    pm.expect(jsonData.result).to.eql(\"OK\");",
+							"});",
+							"pm.test(\"Token is returned\", function () {",
+							"    pm.expect(jsonData.token).to.be.a(\"string\").and.to.have.lengthOf(32);",
+							"});",
+							"pm.test(\"Balance is 10000\", function () {",
+							"    pm.expect(jsonData.balance).to.eql(10000);",
+							"});",
+							"",
+							"pm.collectionVariables.set(\"token\", jsonData.token);",
+							"pm.collectionVariables.set(\"balance\", jsonData.balance);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "qazWSXedc",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://apitests.nyc.wf/authorization",
+					"protocol": "https",
+					"host": [
+						"apitests",
+						"nyc",
+						"wf"
+					],
+					"path": [
+						"authorization"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Successful Transaction (Integer Amount)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.test(\"Result is OK\", function () {",
+							"    pm.expect(jsonData.result).to.eql(\"OK\");",
+							"});",
+							"pm.test(\"Balance decreased by 10\", function () {",
+							"    var expected = pm.collectionVariables.get(\"balance\") - 10;",
+							"    pm.expect(jsonData.balance).to.eql(expected);",
+							"});",
+							"",
+							"pm.collectionVariables.set(\"balance\", jsonData.balance);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Api-Key",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "action",
+							"value": "WITHDRAW"
+						},
+						{
+							"key": "amount",
+							"value": "10"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://apitests.nyc.wf/transaction",
+					"protocol": "https",
+					"host": [
+						"apitests",
+						"nyc",
+						"wf"
+					],
+					"path": [
+						"transaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transaction with lowercase action (Bug Verification - BUG-API-001)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Result is ERROR (BUG-API-001)\", function () {",
+							"    pm.expect(jsonData.result).to.eql(\"ERROR\");",
+							"});",
+							"",
+							"pm.test(\"Error message mentions invalid action 'withdraw' and Allowed: [WITHDRAW]\", function () {",
+							"    var msg = jsonData.message.toLowerCase();",
+							"    pm.expect(msg).to.include(\"invalid action 'withdraw'\");",
+							"    pm.expect(msg).to.include(\"allowed: [withdraw]\");",
+							"});",
+							"",
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Api-Key",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "action",
+							"value": "withdraw"
+						},
+						{
+							"key": "amount",
+							"value": "10"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://apitests.nyc.wf/transaction",
+					"protocol": "https",
+					"host": [
+						"apitests",
+						"nyc",
+						"wf"
+					],
+					"path": [
+						"transaction"
+					]
+				},
+				"description": "Воспроизведение BUG-API-001: action в lowercase, как в документации, но сервер ожидает uppercase."
+			},
+			"response": []
+		},
+		{
+			"name": "Transaction Over Balance (Insufficient Funds)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.test(\"Result is ERROR\", function () {",
+							"    pm.expect(jsonData.result).to.eql(\"ERROR\");",
+							"});",
+							"pm.test(\"Error indicates insufficient funds or similar\", function () {",
+							"    var msg = jsonData.message.toLowerCase();",
+							"    pm.expect(msg).to.satisfy(m => m.includes(\"insufficient\") || m.includes(\"balance\") || m.includes(\"funds\") || m.includes(\"overdraft\") || m.includes(\"bounds\"));",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Api-Key",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "action",
+							"value": "WITHDRAW"
+						},
+						{
+							"key": "amount",
+							"value": "100000"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://apitests.nyc.wf/transaction",
+					"protocol": "https",
+					"host": [
+						"apitests",
+						"nyc",
+						"wf"
+					],
+					"path": [
+						"transaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transaction with Non-Numeric Amount",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.test(\"Result is ERROR\", function () {",
+							"    pm.expect(jsonData.result).to.eql(\"ERROR\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Api-Key",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "action",
+							"value": "WITHDRAW"
+						},
+						{
+							"key": "amount",
+							"value": "abc123"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://apitests.nyc.wf/transaction",
+					"protocol": "https",
+					"host": [
+						"apitests",
+						"nyc",
+						"wf"
+					],
+					"path": [
+						"transaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transaction with Decimal Amount",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.test(\"Result is ERROR\", function () {",
+							"    pm.expect(jsonData.result).to.eql(\"ERROR\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Api-Key",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "action",
+							"value": "WITHDRAW"
+						},
+						{
+							"key": "amount",
+							"value": "10.01"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://apitests.nyc.wf/transaction",
+					"protocol": "https",
+					"host": [
+						"apitests",
+						"nyc",
+						"wf"
+					],
+					"path": [
+						"transaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transaction with Negative Amount",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.test(\"Result is ERROR\", function () {",
+							"    pm.expect(jsonData.result).to.eql(\"ERROR\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Api-Key",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "action",
+							"value": "WITHDRAW"
+						},
+						{
+							"key": "amount",
+							"value": "-10"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://apitests.nyc.wf/transaction",
+					"protocol": "https",
+					"host": [
+						"apitests",
+						"nyc",
+						"wf"
+					],
+					"path": [
+						"transaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transaction with Zero Amount",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.test(\"Result is ERROR or OK (depending on policy)\", function () {",
+							"    pm.expect(['OK', 'ERROR']).to.include(jsonData.result);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Api-Key",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "action",
+							"value": "WITHDRAW"
+						},
+						{
+							"key": "amount",
+							"value": "0"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://apitests.nyc.wf/transaction",
+					"protocol": "https",
+					"host": [
+						"apitests",
+						"nyc",
+						"wf"
+					],
+					"path": [
+						"transaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid Logout (GET Method)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.test(\"Result is ERROR\", function () {",
+							"    pm.expect(jsonData.result).to.eql(\"ERROR\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Api-Key",
+						"value": "{{token}}"
+					}
+				],
+				"url": {
+					"raw": "https://apitests.nyc.wf/logout",
+					"protocol": "https",
+					"host": [
+						"apitests",
+						"nyc",
+						"wf"
+					],
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Successful Logout (POST)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.test(\"Result is OK\", function () {",
+							"    pm.expect(jsonData.result).to.eql(\"OK\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Api-Key",
+						"value": "{{token}}"
+					}
+				],
+				"url": {
+					"raw": "https://apitests.nyc.wf/logout",
+					"protocol": "https",
+					"host": [
+						"apitests",
+						"nyc",
+						"wf"
+					],
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transaction After Logout (Invalid Token)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.test(\"Result is ERROR\", function () {",
+							"    pm.expect(jsonData.result).to.eql(\"ERROR\");",
+							"});",
+							"pm.test(\"Message indicates invalid token\", function () {",
+							"    pm.expect(jsonData.message.toLowerCase()).to.include(\"invalid token\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Api-Key",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "action",
+							"value": "WITHDRAW"
+						},
+						{
+							"key": "amount",
+							"value": "10"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://apitests.nyc.wf/transaction",
+					"protocol": "https",
+					"host": [
+						"apitests",
+						"nyc",
+						"wf"
+					],
+					"path": [
+						"transaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid Transaction (No Token)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.test(\"Result is ERROR\", function () {",
+							"    pm.expect(jsonData.result).to.eql(\"ERROR\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "action",
+							"value": "WITHDRAW"
+						},
+						{
+							"key": "amount",
+							"value": "10"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://apitests.nyc.wf/transaction",
+					"protocol": "https",
+					"host": [
+						"apitests",
+						"nyc",
+						"wf"
+					],
+					"path": [
+						"transaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid Transaction (Missing Amount)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.test(\"Result is ERROR\", function () {",
+							"    pm.expect(jsonData.result).to.eql(\"ERROR\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Api-Key",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "action",
+							"value": "WITHDRAW"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://apitests.nyc.wf/transaction",
+					"protocol": "https",
+					"host": [
+						"apitests",
+						"nyc",
+						"wf"
+					],
+					"path": [
+						"transaction"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": ""
+		},
+		{
+			"key": "balance",
+			"value": 0
+		}
+	]
+}
